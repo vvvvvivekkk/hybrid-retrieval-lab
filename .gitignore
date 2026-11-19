@@ -1,6 +1,16 @@
 __pycache__/
 *.pyc
-data/*.jsonl
-data/*.json
 .venv/
 venv/
+
+# Regenerable: `python download_data.py --dataset X`
+data/**/corpus.jsonl
+data/**/queries.jsonl
+data/**/qrels_*.jsonl
+
+# Regenerable: `python cache_runs.py --dataset X`
+data/**/runs_cache.json
+
+# Benchmark RESULTS are kept and versioned -- they are the findings:
+#   tuned.json  ann_bench.json  rerank_bench.json
+#   metadata_bench.json  sweep_results.json  results.json
