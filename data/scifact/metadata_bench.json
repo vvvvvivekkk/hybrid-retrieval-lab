@@ -1,0 +1,42 @@
+[
+  {
+    "filter_frac": 1.0,
+    "allowed_docs": 5183,
+    "post_avg_results": 20.0,
+    "post_ms": 433.4802695866665,
+    "pre_avg_results": 20.0,
+    "pre_ms": 660.7752825066669
+  },
+  {
+    "filter_frac": 0.5,
+    "allowed_docs": 2606,
+    "post_avg_results": 9.916666666666666,
+    "post_ms": 608.1063919633334,
+    "pre_avg_results": 20.0,
+    "pre_ms": 481.8890390166674
+  },
+  {
+    "filter_frac": 0.2,
+    "allowed_docs": 1060,
+    "post_avg_results": 3.9466666666666668,
+    "post_ms": 512.6766653033337,
+    "pre_avg_results": 20.0,
+    "pre_ms": 489.04782777333514
+  },
+  {
+    "filter_frac": 0.05,
+    "allowed_docs": 246,
+    "post_avg_results": 0.9233333333333333,
+    "post_ms": 17.595766959999914,
+    "pre_avg_results": 20.0,
+    "pre_ms": 16.303703566666933
+  },
+  {
+    "filter_frac": 0.01,
+    "allowed_docs": 60,
+    "post_avg_results": 0.24,
+    "post_ms": 16.758650033331527,
+    "pre_avg_results": 20.0,
+    "pre_ms": 18.24700073333285
+  }
+]
