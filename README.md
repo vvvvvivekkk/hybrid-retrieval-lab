@@ -9,6 +9,20 @@ flips depending on the corpus.**
 
 ---
 
+## Documentation
+
+Full written walkthrough in **[`docs/`](docs/)** — built as a teaching path for
+anyone learning AI engineering, assuming no prior knowledge of retrieval. It covers
+the concepts from scratch ([BM25](docs/02-bm25-keyword-search.md),
+[embeddings](docs/03-embeddings-meaning-search.md),
+[fusion](docs/04-fusion-combining-retrievers.md),
+[cross-encoders](docs/05-reranking-cross-encoders.md),
+[metrics](docs/06-metrics-how-to-measure.md)), the methodology
+([evaluation and leakage](docs/07-evaluation-and-leakage.md),
+[scaling](docs/08-scaling-indexes-and-filters.md)), a full
+[code walkthrough](docs/09-code-walkthrough.md), and
+[what it all teaches](docs/11-what-this-teaches-you.md).
+
 ## What this project is about
 
 When you ask an AI about your own documents, the model doesn't read all of them.
@@ -206,8 +220,11 @@ query
 | `src/ann.py` | FAISS flat + HNSW indexes, recall-vs-exact measurement |
 | `src/metadata.py` | pre-filter and post-filter implementations |
 | `src/metrics.py` | nDCG@k, Recall@k, MRR@k from scratch |
+| `download_data.py` | fetch any BEIR dataset with all qrel splits |
+| `cache_runs.py` | index once, cache ranked lists so experiments are instant |
 | `tune.py` | **leakage-free tuning** — grid on train, report on test |
-| `run_ablation.py` | stage-by-stage ablation |
+| `run_ablation.py` | stage-by-stage ablation with p50/p95 latency |
+| `sweep_weights.py` | diagnostic trade-off sweep (exploration, not evaluation) |
 | `compare_rerankers.py` | reranker head-to-head |
 | `benchmark_ann.py` | ANN recall/latency curve |
 | `benchmark_metadata.py` | pre- vs post-filter recall collapse |

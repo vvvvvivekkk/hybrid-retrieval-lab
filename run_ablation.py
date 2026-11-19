@@ -15,15 +15,16 @@ from rerank import Reranker
 from metrics import evaluate
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--device", default=None, help="cuda for your 4060, cpu otherwise")
+ap.add_argument("--dataset", default="scifact")
+ap.add_argument("--device", default=None, help="cuda for a GPU, cpu otherwise")
 ap.add_argument("--candidates", type=int, default=50, help="how many docs reach the reranker")
 ap.add_argument("--rrf-k", type=int, default=60)
 ap.add_argument("--embed-model", default="BAAI/bge-small-en-v1.5")
 ap.add_argument("--rerank-model", default="cross-encoder/ms-marco-MiniLM-L-6-v2")
 args = ap.parse_args()
 
-corpus, queries, qrels = load_all()
-print(f"{len(corpus)} docs | {len(queries)} queries\n")
+corpus, queries, qrels = load_all(args.dataset)
+print(f"{args.dataset}: {len(corpus)} docs | {len(queries)} queries\n")
 
 t0 = time.perf_counter(); sparse = SparseRetriever(corpus)
 print(f"BM25 index built in {time.perf_counter()-t0:.1f}s")
@@ -70,5 +71,5 @@ for name in runs:
           f"{m['Recall@50']:>12.4f}{m['Recall@100']:>12.4f}{p50:>10.1f}{p95:>9.1f}")
 print("=" * 78)
 
-json.dump(results, open("results.json", "w"), indent=2)
-print("\nsaved -> results.json")
+json.dump(results, open(f"data/{args.dataset}/results.json", "w"), indent=2)
+print(f"\nsaved -> data/{args.dataset}/results.json")
